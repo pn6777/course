@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>講座申込</title>
+    <script type="text/javascript" th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <link th:href="@{/css/course/AttendanceRecord.css}" rel="stylesheet">
+</head>
+
+<body>
+    <table id="calendar">
+        <thead>
+            <tr>
+                <th>日期</th>
+                <th>星期</th>
+                <th>受講</th>
+                <th>開始時間</th>
+                <th>退席</th>
+                <th>終了時間</th>
+                <th>受講時間数</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 放置區 -->
+        </tbody>
+    </table>
+    <script th:src="@{/js/course/AttendanceRecord.js}"></script>
+</body>
+</html>

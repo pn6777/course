@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.inext.manage_system.dao.CourseDao">
+
+    <!-- 創建 課程資料 -->
+    <insert id="createByCourse">
+            INSERT INTO course
+            (course_id,
+            course_name,
+            registr,
+            start_date,
+            end_date,
+            site)
+            VALUES (#{courseAlias.courseId},
+                    #{courseAlias.courseName},
+                    #{courseAlias.registr},
+                    #{courseAlias.startDate},
+                    #{courseAlias.endDate},
+                    #{courseAlias.site})
+    </insert>
+
+    <!-- 創建 課程內容資料 -->
+    <insert id="createByContent">
+        INSERT INTO course_content
+        (course_number,
+        name,
+        lecture_language,
+        frame,
+        type,
+        content)
+        VALUES (#{courseContent.courseNumber},
+                #{courseContent.name},
+                #{courseContent.lectureLanguage},
+                #{courseContent.frame},
+                #{courseContent.type},
+                #{courseContent.content})
+    </insert>
+
+    <!-- 創建 行程表資料 -->
+    <insert id="createBySchedule">
+        INSERT INTO course_schedule
+        (course_id,
+        number,
+        date,
+        teaching_hours,
+        lecture_language,
+        level,
+        title)
+        VALUES (#{courseSchedule.courseId},
+                #{courseSchedule.number},
+                #{courseSchedule.date},
+                #{courseSchedule.teachingHours},
+                #{courseSchedule.lectureLanguage},
+                #{courseSchedule.level},
+                #{courseSchedule.title})
+    </insert>
+
+    <!-- 把 CourseCategory 資料表內的所有資料取出 -->
+    <select id="findAllCourseCategory" resultType="com.inext.manage_system.entity.CourseCategory">
+        SELECT * FROM course_category
+    </select>
+
+    <!-- 簽到後創建一筆資料進入資料庫內 -->
+    <insert id="checkIn">
+        INSERT INTO visitor_display
+        (number,
+        date,
+        start_time,
+        end_time)
+        VALUES(#{visitorDisplay.number},
+        #{visitorDisplay.date},
+        #{visitorDisplay.startTime},
+        null)
+    </insert>
+
+    <!-- 簽退後將資料更新進資料庫 -->
+    <update id="checkOut">
+        UPDATE visitor_display
+        SET end_time = #{endTime}
+        WHERE number = #{number} AND date = #{date}
+    </update>
+
+    <!-- 以學生編號將當天的簽到表取出來 -->
+    <select id="findByNumber" resultType="com.inext.manage_system.entity.VisitorDisplay">
+        SELECT * FROM visitor_display
+        <where>
+            number = #{number}
+            <if test="date != null">
+                AND date = #{date}
+            </if>
+        </where>
+    </select>
+
+    <!-- 將計算出的時數輸入進資料庫內 -->
+    <update id="updateHours">
+        UPDATE visitor_display
+        SET study_hours = #{studyHours}    
+        WHERE number = #{number} AND date = #{date}
+    </update>
+
+    <!-- 將當月的簽到表取出 -->
+    <select id="findByMonthCheckIn" resultType="com.inext.manage_system.entity.VisitorDisplay">
+        SELECT * FROM visitor_display
+        WHERE DATE_FORMAT(date, '%Y-%m') = #{month} AND number = #{number}
+    </select>
+
+    <!-- 挑出每月的行程表 -->
+    <select id="findByMonth" resultType="com.inext.manage_system.entity.CourseSchedule">
+        SELECT * FROM course_schedule
+        <where>
+            <if test="month != null">
+                DATE_FORMAT(date, '%Y-%m')  = #{month}
+            </if>
+            AND course_id = #{courseId}
+        </where>  
+        ORDER BY date
+    </select>
+
+    <!-- 點擊申請後 registr 修改加一 -->
+    <update id="updateRegistr">
+        UPDATE course
+        SET registr = #{registr}    
+        WHERE course_id = #{courseId}
+    </update>
+
+    <!-- 點擊保存後將行程表內容寫進資料庫 -->
+    <insert id="createSchedule">
+        INSERT INTO course_schedule
+        (course_id,
+        number,
+        date,
+        teaching_hours,
+        lecture_language,
+        level,
+        title)
+        VALUES (#{courseSchedule.courseId},
+                #{courseSchedule.number},
+                #{courseSchedule.date},
+                #{courseSchedule.teachingHours},
+                #{courseSchedule.lectureLanguage},
+                #{courseSchedule.level},
+                #{courseSchedule.title})
+    </insert>
+
+    <delete id="deleteSchedule">
+        DELETE FROM course_schedule
+        WHERE date = #{date}
+    </delete>
+
+    <!-- 點擊保存後將資料庫行程表內容更新 -->
+    <update id="updateSchedule">
+        UPDATE course_schedule
+        SET teaching_hours = #{courseSchedule.teachingHours},
+        lecture_language = #{courseSchedule.lectureLanguage},
+        level = #{courseSchedule.level},
+        title = #{courseSchedule.title}
+        WHERE number = #{courseSchedule.number} AND course_id = #{courseSchedule.courseId} AND date = #{courseSchedule.date}
+    </update>
+
+    <!-- 檢查存入的資料是否存在 -->
+    <select id="existSchedule" resultType="com.inext.manage_system.entity.CourseSchedule">
+        SELECT * FROM course_schedule
+        WHERE course_id = #{courseId} AND number = #{number} AND date = #{date}
+    </select>
+
+    <!-- 搜索講座內容 -->
+    <select id="selectContent" resultType="com.inext.manage_system.entity.CourseContent">
+        SELECT * FROM course_content
+        <where>
+            <if test="lectureLanguage != null">
+                <if test="lectureLanguage != ''">
+                lecture_language = #{lectureLanguage}
+                </if>
+            </if>
+            <if test="frame != null">
+                <if test="frame != ''">
+                AND frame = #{frame}
+                </if>
+            </if>
+            <if test="type != null">
+                <if test="type != ''">
+                AND type = #{type}
+                </if>
+            </if>
+        </where>
+    </select>
+
+    <!-- 點擊保存後更新講座內容 -->
+    <update id="updateContent">
+        UPDATE course_content
+        SET name = #{courseContent.name},
+        lecture_language =#{courseContent.lectureLanguage},
+        frame = #{courseContent.frame},
+        type = #{courseContent.type},
+        content = #{courseContent.content}
+        WHERE course_number = #{courseContent.courseNumber} 
+    </update>
+
+    <!-- 檢查內容是否以存在 -->
+    <select id="existContentNumber" resultType="com.inext.manage_system.entity.CourseContent">
+        SELECT * FROM course_content
+        WHERE course_number = #{courseNumber}
+    </select>
+
+    <!-- 透過傳入資料篩選符合的課程 -->
+    <select id="selectCourse" resultType="com.inext.manage_system.entity.CourseAlias">
+        SELECT * FROM course
+        <where>
+            <if test="startDate != null">
+                start_date &gt;= #{startDate}
+            </if>
+            <if test="endDate != null">
+                AND end_date &lt;= #{endDate}
+            </if>
+            <if test="courseName != null">
+                <if test="courseName != ''">
+                AND course_name LIKE CONCAT('%', #{courseName}, '%')
+                </if>
+            </if>
+        </where>   
+    </select>
+
+    <!-- 點擊後保存課程內容 -->
+    <update id="updateCourse">
+        UPDATE course
+        SET course_name = #{courseAlias.courseName},
+        start_date = #{courseAlias.startDate},
+        end_date = #{courseAlias.endDate}
+        WHERE course_id = #{courseAlias.courseId}
+    </update>
+
+    <!-- 確認課程是否存在 -->
+    <select id="existCourseId" resultType="com.inext.manage_system.entity.CourseAlias">
+        SELECT * FROM course
+        WHERE course_id = #{courseId}
+    </select>
+
+</mapper>

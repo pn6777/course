@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+
+}
+
+.bigDiv{
+    display: flex;
+    position: relative;
+}
+
+.selectMonthBtn{
+    display: flex;
+}
+
+.selectYearBtn{
+    display: flex;
+    position: absolute;
+    right: 0%;
+}
+
+.text1{
+    width: 40px;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    cursor: pointer;
+}
+
+.courseDiv{
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 1px solid black;
+
+    span{
+        margin: 0 10px;
+    }
+
+    button{
+        margin-left: 10px;
+    }
+}
+
+.text2{
+    margin: 0;
+}
+
+.outerLayer{
+    display: flex;
+    font-family: Georgia, "游明朝", "Yu Mincho", "游明朝体", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho ProN", "MS P明朝", "MS PMincho", HGS明朝E, "MS Mincho", serif;
+}
+
+.switchPageDiv{
+    p{
+        height: 12vh;
+    }
+    margin-right: 5vw;
+    margin-top: 0.5vw;
+    margin-left: 1vw;
+}
+
+.showText{
+    text-align: center;
+    font-size: 25px;
+}
+
+.showDiv{
+    width: 80%;
+    margin-top: 10vh;
+}
+
+.clickBox{
+    background-color: rgb(177, 211, 220, 0.7);
+}
+
+.clickYearBox{
+    background-color: rgb(177, 211, 220, 0.7);
+}

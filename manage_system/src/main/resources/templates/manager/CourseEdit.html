@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>講座スケジュール編集</title>
+    <script type="text/javascript" th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <link th:href="@{/css/course/CourseEdit.css}" rel="stylesheet">
+</head>
+
+<body>
+    <p>クラス編集</p>
+    <div>
+        <samp>講座名</samp>
+        <input class="courseNameDiv" id="courseName" type="text">
+    </div>
+    <div>
+        <samp>開始年月日</samp>
+        <select id="startYear"></select>
+        <label for="">年</label>
+        <samp>/</samp>
+        <select id="startMonth"></select>
+        <label for="">月</label>
+        <samp>/</samp>
+        <select id="startDate"></select>
+        <label for="">日</label>
+    </div>
+    <div>
+        <samp>終了年月日</samp>
+        <select id="endYear"></select>
+        <label for="">年</label>
+        <samp>/</samp>
+        <select id="endMonth"></select>
+        <label for="">月</label>
+        <samp>/</samp>
+        <select id="endDate"></select>
+        <label for="">日</label>
+    </div>
+    <div class="btnDiv">
+    <button id="btnSave">保存</button>
+    <button id="btnCancel">取消</button>
+    </div>
+    <script th:src="@{/js/course/CourseEdit.js}"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>講座申込</title>
+    <script type="text/javascript" th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <link th:href="@{/css/course/CourseApplication.css}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="outerLayer">
+        <div class="switchPageDiv">
+            <p><img style="width: 100px; height: 100px;" src="https://upload.wikimedia.org/wikipedia/zh/6/6d/ROC_Ministry_of_Education_Seal.svg" alt=""></p>
+            <p>履歴書出力</p>
+            <p>勤怠入力</p>
+            <p>感想入力</p>
+            <p>パスワード変更</p>
+        </div>
+
+        <div class="showDiv">
+            <p>講座申込</p>
+            <div class="bigDiv">
+                <div class="selectMonthBtn">
+                    <p class="text1" id="jan">1月</p>
+                    <p class="text1" id="feb">2月</p>
+                    <p class="text1" id="mar">3月</p>
+                    <p class="text1" id="apr">4月</p>
+                    <p class="text1" id="may">5月</p>
+                    <p class="text1" id="jun">6月</p>
+                    <p class="text1" id="jul">7月</p>
+                    <p class="text1" id="aug">8月</p>
+                    <p class="text1" id="sep">9月</p>
+                    <p class="text1" id="oct">10月</p>
+                    <p class="text1" id="nov">11月</p>
+                    <p class="text1" id="dec">12月</p>
+                </div>
+                <div class="selectYearBtn" id="yearBtn">
+                    <!-- 放置區 -->
+                </div>
+            </div>
+            <div id="courseDisplay">
+                <!-- 放置區 -->
+            </div>
+            <div class="bottomDiv">
+                <p class="showText"></p>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/course/Application.js}"></script>
+</body>
+
+</html>

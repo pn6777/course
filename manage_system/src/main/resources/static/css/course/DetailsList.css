@@ -1,0 +1,65 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    padding-top: 10vh;
+    padding-left: 5vw;
+}
+
+.language{
+    width: 5vw;
+    height: 2vh;
+}
+
+.frame{
+    width: 7vw;
+    height: 2vh;
+}
+
+.level{
+    width: 4vw;
+    height: 2vh;
+}
+
+.contentDiv{
+    display: flex;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    div{
+        width: 10vw;
+        height: 10vh;
+        border: 1px solid black;
+        margin-left: 10px;
+        position: relative;
+        
+        div{
+            width: 7.5vw;
+            height: auto;
+            border: 1px solid black;
+            text-align: start;
+            white-space:nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            margin-left: 0;
+        }
+
+        button{
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        p{
+            height: 68%;
+            margin: 0;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+}
+
+.pageBtn{
+    margin-left: 12vw;
+    margin-top: 2vh;
+}

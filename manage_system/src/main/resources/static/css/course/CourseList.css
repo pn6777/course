@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    padding: 10vh 20vw;
+}
+
+.boxDistance{
+    margin-left: 10px;
+}
+
+.selectMonth{
+    display: flex;
+    p{
+        width: 3vw;
+        height: 4vh;
+        margin: 10px 0;
+        border: 1px solid black;
+    }
+}
+
+th{
+    width: 5vw;
+}
+
+td{
+    height: 5vh;
+    text-align: center;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.title{
+    width: 12vw;
+}
+
+.pageBtn{
+    margin-left: 12vw;
+    margin-top: 2vh;
+}
+
+.clickBox{
+    background-color: rgb(177, 211, 220, 0.7);
+}
+
+.textDiv{
+    text-align: center;
+}

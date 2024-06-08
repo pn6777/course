@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>講座明細リスト</title>
+    <script type="text/javascript" th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <link th:href="@{/css/course/CourseList.css}" rel="stylesheet">
+</head>
+
+<body>
+    <p>クラスリスト</p>
+    <div>
+        <samp>検索条件</samp>
+        <select class="boxDistance" id="startMonthSelect">
+            <option value="">--開始月--</option>
+        </select>
+        <select class="boxDistance" id="endMonthSelect">
+            <option value="">--結束月--</option>
+        </select>
+        <input class="boxDistance" id="inputBox" type="text">
+        <button class="boxDistance" id="selectBtn">検索</button>
+    </div>
+    <div class="selectMonth">
+        <p class="text1" id="jan">1月</p>
+        <p class="text1" id="feb">2月</p>
+        <p class="text1" id="mar">3月</p>
+        <p class="text1" id="apr">4月</p>
+        <p class="text1" id="may">5月</p>
+        <p class="text1" id="jun">6月</p>
+        <p class="text1" id="jul">7月</p>
+        <p class="text1" id="aug">8月</p>
+        <p class="text1" id="sep">9月</p>
+        <p class="text1" id="oct">10月</p>
+        <p class="text1" id="nov">11月</p>
+        <p class="text1" id="dec">12月</p>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>NO. </th>
+                    <th class="title">講座開始年月日</th>
+                    <th class="title">講座終了年月日</th>
+                    <th>講座名</th>
+                    <th>人数</th>
+                </tr>
+            </thead>
+            <tbody id="courseContent">
+                <!-- 放置區 -->
+            </tbody>
+        </table>
+        <div class="textDiv"></div>
+        <button class="pageBtn" id="nextPage">次ページ</button>
+        <button class="prevPageBtn" id="prevPage">前ページ</button>
+    </div>
+    <script th:src="@{/js/course/CourseList.js}"></script>
+
+</body>
+
+</html>

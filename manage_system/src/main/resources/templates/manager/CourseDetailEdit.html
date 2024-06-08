@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>講座明細リスト</title>
+    <script type="text/javascript" th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <!-- <link th:href="@{/css/course/Schedule.css}" rel="stylesheet"> -->
+    <link th:href="@{/css/course/DetailEdit.css}" rel="stylesheet">
+</head>
+
+<body>
+    <p>講座明細編集</p>
+    <samp>(*は必須入力を示します。)</samp>
+    <div>
+        <p>講座名称<samp>*</samp></p>
+        <input class="textArea" id="textInput" type="text">
+    </div>
+    <div>
+        <p>講座言語<samp>*</samp></p>
+        <select id="language">
+            <option value="">--</option>
+        </select>
+    </div>
+    <div>
+        <p>フレーム</p>
+        <select id="frame">
+            <option value="">--</option>
+        </select>
+    </div>
+    <div>
+        <p>講座タイプ<samp>*</samp></p>
+        <select id="level">
+            <option value="">--</option>
+        </select>
+    </div>
+    <div>
+        <p>講座内容</p>
+        <textarea class="contentArea" id="contentArea"></textarea>
+    </div>
+    <div class="btnDiv">
+    <button id="btnSave">保存</button>
+    <button id="btnCancel">取消</button>
+    </div>
+    <script th:src="@{/js/course/DetailEdit.js}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+body{
+    padding:0 15vw;
+    padding-top: 10vh;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th{
+    margin-left: 10vw;
+}
+
+td{
+    text-align: center;
+}

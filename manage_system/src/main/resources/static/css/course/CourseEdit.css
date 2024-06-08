@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    padding-top: 10vh;
+    padding-left: 20vw;
+}
+
+div{
+    margin: 20px 0;
+}
+
+.courseNameDiv{
+    width: 60%;
+    margin-left: 1.7vw;
+}
+
+select{
+    width: 7vw;
+}
+
+button{
+    width: 8vw;
+    height: 5vh;
+}
+
+.btnDiv{
+    margin-top: 20vh;
+    margin-left: 10vw;
+}

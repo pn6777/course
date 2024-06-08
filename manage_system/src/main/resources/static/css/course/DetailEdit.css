@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    padding-top: 10vh;
+    padding-left: 10vw;
+}
+
+button{
+    margin-top: 10px;
+    width: 5vw;
+    height: 6vh;
+}
+
+p{
+    width: 8vw;
+    margin: 0;
+}
+
+samp{
+    color: red;
+}
+
+div{
+    display: flex;
+    margin: 10px 0;
+}
+
+input{
+    width: 30vw;
+}
+
+select{
+    width: 30vw;
+}
+
+.contentArea{
+    width: 30vw;
+    height: 20vh;
+    resize: none;
+}
+
+.btnDiv{
+    margin-left: 18vw;
+}

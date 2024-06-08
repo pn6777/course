@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    padding-left: 20vw;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    text-overflow: ellipsis;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td {
+    height: 80px;
+    width: 80px;
+}
+
+.bigDiv{
+    display: flex;
+    position: relative;
+}
+
+.selectMonthBtn{
+    display: flex;
+}
+
+.selectWeekOrMonthBtn{
+    display: flex;
+    position: absolute;
+    right: 30%;
+}
+
+.text1{
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.compilationBtn{
+    width: 10vw;
+    height: 8vh;
+    margin-top: 10px;
+    margin-left: 23.5vw;
+}
+
+.clickBox{
+    background-color: rgb(177, 211, 220, 0.7);
+}

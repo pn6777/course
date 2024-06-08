@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>講座明細リスト</title>
+    <script type="text/javascript" th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <link th:href="@{/css/course/DetailsList.css}" rel="stylesheet">
+</head>
+
+<body>
+    <p>講座明細リスト</p>
+
+    <div>
+        <samp>検索条件</samp>
+        <select class="language" name="" id="">
+            <option value="">--</option>
+        </select>
+        <select class="frame" name="" id="">
+            <option value="">--</option>
+        </select>
+        <select class="level" name="" id="">
+            <option value="">--</option>
+        </select>
+        <button id="selectMaterial">検索</button>
+    </div>
+    <div class="contentDiv" id="content">
+        <!-- 預留區 -->
+    </div>
+
+    <button class="pageBtn" id="nextPage">次ページ</button>
+    <button id="prevPage">前ページ</button>
+    <script th:src="@{/js/course/CourseDetailList.js}"></script>
+</body>
+
+</html>

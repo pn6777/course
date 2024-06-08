@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>講座スケジュール編集</title>
+    <script type="text/javascript" th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <link th:href="@{/css/course/Schedule.css}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="selectMonthBtn">
+        <!-- 配置エリア -->
+    </div>
+    
+    <table id="courseSchedule">
+        <thead>
+        <tr>
+            <th>日付</th>
+            <th>曜日</th>
+            <th>時数</th>
+            <th>講座</th>
+            <th>レベル</th>
+            <th>タイトル</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            <!-- 配置エリア -->
+        </tbody>
+    </table>
+
+    <script th:src="@{/js/course/ScheduleEdit.js}"></script>
+</body>
+</html>
