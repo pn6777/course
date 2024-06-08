@@ -59,7 +59,7 @@ public class CourseServiceControll {
     @GetMapping(value = "/course/managerSchedule")
     public String managerSchedule(){
         return "/manager/courseSchedule";
-    }、
+    }
 
     //page5
     @GetMapping(value = "/course/managerScheduleEdit")
